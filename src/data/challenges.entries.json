@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ce1",
+    "challengeId": "c1",
+    "postId": "p1", 
+    "userId": "u1",
+    "status": "submitted",
+    "createdAt": "2024-09-05T14:30:00Z"
+  },
+  {
+    "id": "ce2",
+    "challengeId": "c1",
+    "postId": "mock-1",
+    "userId": "user-2", 
+    "status": "submitted",
+    "createdAt": "2024-09-07T10:15:00Z"
+  },
+  {
+    "id": "ce3",
+    "challengeId": "c2",
+    "postId": "mock-2",
+    "userId": "user-3",
+    "status": "submitted", 
+    "createdAt": "2024-09-16T09:45:00Z"
+  }
+]

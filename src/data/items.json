@@ -1,0 +1,98 @@
+[
+  {
+    "id": "i1",
+    "userId": "u1",
+    "type": "top",
+    "name": "White Cotton T-Shirt",
+    "colors": ["white"],
+    "seasons": ["summer", "spring"],
+    "occasions": ["casual"],
+    "brand": "Uniqlo",
+    "imageUrl": "/mock/white-tee.jpg",
+    "tags": ["basic", "cotton"]
+  },
+  {
+    "id": "i2",
+    "userId": "u1",
+    "type": "bottom",
+    "name": "Navy Chinos",
+    "colors": ["navy"],
+    "seasons": ["summer", "spring", "fall"],
+    "occasions": ["casual", "smart"],
+    "brand": "Zara",
+    "imageUrl": "/mock/navy-chino.jpg",
+    "tags": ["slim", "versatile"]
+  },
+  {
+    "id": "i3",
+    "userId": "u1",
+    "type": "shoes",
+    "name": "White Sneakers",
+    "colors": ["white"],
+    "seasons": ["all"],
+    "occasions": ["casual", "active"],
+    "brand": "Nike",
+    "imageUrl": "/mock/white-sneaker.jpg",
+    "tags": ["clean", "comfortable"]
+  },
+  {
+    "id": "i4",
+    "userId": "u1",
+    "type": "outer",
+    "name": "Beige Light Jacket",
+    "colors": ["beige"],
+    "seasons": ["spring", "fall"],
+    "occasions": ["smart", "casual"],
+    "brand": "H&M",
+    "imageUrl": "/mock/beige-coat.jpg",
+    "tags": ["light", "layering"]
+  },
+  {
+    "id": "i5",
+    "userId": "u1",
+    "type": "accessory",
+    "name": "Black Leather Belt",
+    "colors": ["black"],
+    "seasons": ["all"],
+    "occasions": ["smart", "formal"],
+    "brand": "NoBrand",
+    "imageUrl": "/mock/black-belt.jpg",
+    "tags": ["leather", "classic"]
+  },
+  {
+    "id": "i6",
+    "userId": "u1",
+    "type": "top",
+    "name": "Navy Polo Shirt",
+    "colors": ["navy"],
+    "seasons": ["summer", "spring"],
+    "occasions": ["smart", "casual"],
+    "brand": "Lacoste",
+    "imageUrl": "/mock/navy-polo.jpg",
+    "tags": ["smart-casual", "breathable"]
+  },
+  {
+    "id": "i7",
+    "userId": "u1",
+    "type": "bottom",
+    "name": "Dark Jeans",
+    "colors": ["dark-blue"],
+    "seasons": ["fall", "winter", "spring"],
+    "occasions": ["casual"],
+    "brand": "Levi's",
+    "imageUrl": "/mock/dark-jeans.jpg",
+    "tags": ["denim", "versatile"]
+  },
+  {
+    "id": "i8",
+    "userId": "u1",
+    "type": "shoes",
+    "name": "Brown Leather Loafers",
+    "colors": ["brown"],
+    "seasons": ["spring", "fall"],
+    "occasions": ["smart", "formal"],
+    "brand": "Clarks",
+    "imageUrl": "/mock/brown-loafers.jpg",
+    "tags": ["leather", "formal"]
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "challengeId": "c1",
+    "winners": [],
+    "curatorsPick": ["p1"],
+    "stats": {
+      "totalSubmissions": 15,
+      "totalLikes": 342,
+      "totalParticipants": 12,
+      "topContributors": [
+        {
+          "userId": "u1",
+          "submissions": 2,
+          "totalLikes": 45
+        },
+        {
+          "userId": "user-2", 
+          "submissions": 1,
+          "totalLikes": 42
+        }
+      ]
+    },
+    "finalizedAt": ""
+  }
+]

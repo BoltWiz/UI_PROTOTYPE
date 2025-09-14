@@ -1,0 +1,16 @@
+[
+  {
+    "id": "u1",
+    "name": "Minh",
+    "role": "user",
+    "defaultCity": "Ho Chi Minh",
+    "styleGoals": ["smart", "standout"],
+    "preferredColors": ["navy", "white", "beige"],
+    "avoidedColors": ["neon", "bright-green"]
+  },
+  {
+    "id": "admin",
+    "name": "Admin",
+    "role": "admin"
+  }
+]

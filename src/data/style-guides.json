@@ -1,0 +1,34 @@
+[
+  {
+    "id": "g1",
+    "stylistId": "s1",
+    "title": "The Art of Layering: Autumn Edition",
+    "content": "# The Art of Layering: Autumn Edition\n\nLayering is more than just adding clothes - it's about creating depth, texture, and visual interest while staying warm and comfortable.\n\n## Key Principles\n\n1. **Start with a solid foundation**: Begin with well-fitted basics\n2. **Play with proportions**: Mix different lengths and silhouettes\n3. **Texture mixing**: Combine smooth and textured fabrics\n4. **Color coordination**: Use a cohesive color palette\n\n## Essential Pieces\n\n- Lightweight base layers\n- Structured blazers\n- Cozy knits\n- Statement outerwear\n\n## Pro Tips\n\n- Always ensure the bottom layer is the most fitted\n- Keep accessories minimal to avoid overwhelming the look\n- Pay attention to fabric weight - lighter fabrics should be closer to the body",
+    "coverImage": "/mock/beige-coat.jpg",
+    "images": ["/mock/navy-chino.jpg", "/mock/white-tee.jpg"],
+    "tags": ["layering", "autumn", "basics", "texture"],
+    "category": "basics",
+    "difficulty": "intermediate",
+    "readTime": 5,
+    "likes": 234,
+    "isPublic": true,
+    "createdAt": "2024-01-10T09:00:00Z",
+    "updatedAt": "2024-01-12T11:30:00Z"
+  },
+  {
+    "id": "g2",
+    "stylistId": "s1",
+    "title": "Color Psychology in Fashion",
+    "content": "# Color Psychology in Fashion\n\nColors communicate before you even speak. Understanding color psychology can help you dress for success and express your personality authentically.\n\n## Power Colors\n\n### Navy Blue\n- Conveys trust, stability, and professionalism\n- Perfect for business meetings and interviews\n- Universally flattering\n\n### Burgundy\n- Represents confidence and sophistication\n- Great for evening events\n- Adds richness to autumn wardrobes\n\n### White\n- Symbolizes cleanliness and simplicity\n- Creates a fresh, crisp appearance\n- Excellent base for any outfit\n\n## Color Combinations\n\n- **Monochromatic**: Different shades of the same color\n- **Complementary**: Colors opposite on the color wheel\n- **Analogous**: Colors next to each other on the wheel\n\n## Seasonal Considerations\n\nChoose colors that complement your natural coloring and the season for maximum impact.",
+    "coverImage": "/mock/navy-polo.jpg",
+    "images": ["/mock/beige-coat.jpg", "/mock/dark-jeans.jpg"],
+    "tags": ["color", "psychology", "professional", "seasonal"],
+    "category": "color",
+    "difficulty": "beginner",
+    "readTime": 7,
+    "likes": 412,
+    "isPublic": true,
+    "createdAt": "2024-02-01T10:00:00Z",
+    "updatedAt": "2024-02-03T14:20:00Z"
+  }
+]

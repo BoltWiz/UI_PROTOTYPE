@@ -1,0 +1,32 @@
+[
+  {
+    "id": "p1",
+    "userId": "u1",
+    "image": "/mock/outfit1.jpg",
+    "caption": "Casual Friday vibes! 🌟 Simple but effective combo",
+    "tags": ["casual", "friday", "simple"],
+    "likes": 12,
+    "comments": [
+      {
+        "userId": "u1",
+        "text": "Love this clean look!",
+        "timestamp": "2025-08-21T10:30:00Z"
+      }
+    ],
+    "status": "visible",
+    "reports": [],
+    "timestamp": "2025-08-21T08:15:00Z"
+  },
+  {
+    "id": "p2",
+    "userId": "u1",
+    "image": "/mock/outfit2.jpg",
+    "caption": "Smart casual for today's client meeting 💼",
+    "tags": ["smart", "business", "meeting"],
+    "likes": 8,
+    "comments": [],
+    "status": "visible",
+    "reports": [],
+    "timestamp": "2025-08-20T07:45:00Z"
+  }
+]

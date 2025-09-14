@@ -1,0 +1,19 @@
+{
+  "today": [
+    {
+      "time": "09:00",
+      "title": "Morning Standup",
+      "dressCode": "casual"
+    },
+    {
+      "time": "14:00",
+      "title": "Client Presentation",
+      "dressCode": "smart"
+    },
+    {
+      "time": "18:30",
+      "title": "Dinner with Friends",
+      "dressCode": "casual"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "cons1",
+    "userId": "u1",
+    "stylistId": "s1",
+    "question": "I have an important presentation next week. What would be the best outfit to convey confidence and professionalism?",
+    "answer": "For a confident presentation look, I recommend a well-tailored navy blazer with matching trousers, a crisp white button-down shirt, and classic leather oxfords. Navy conveys trust and authority, while the classic combination ensures you look polished and prepared. Add a subtle watch or simple jewelry to complete the look.",
+    "images": ["/mock/navy-chino.jpg", "/mock/white-tee.jpg"],
+    "status": "answered",
+    "category": "outfit",
+    "createdAt": "2024-01-20T09:00:00Z",
+    "answeredAt": "2024-01-20T15:30:00Z"
+  },
+  {
+    "id": "cons2",
+    "userId": "u1",
+    "stylistId": "s1",
+    "question": "I'm attending a wedding next month. The dress code is 'smart casual' - what does that mean exactly?",
+    "answer": "Smart casual for a wedding means dressed up but not formal. Think chinos or dress pants with a button-down shirt or polo, a blazer (optional), and leather loafers or clean sneakers. Avoid jeans, shorts, or overly formal suits. Colors should be celebratory but not too bright - navy, beige, or soft pastels work well.",
+    "status": "answered",
+    "category": "occasion",
+    "createdAt": "2024-02-01T11:00:00Z",
+    "answeredAt": "2024-02-01T16:45:00Z"
+  },
+  {
+    "id": "cons3",
+    "userId": "u1",
+    "stylistId": "s1",
+    "question": "How do I know which colors look best on me? I feel like I always gravitate towards black and white.",
+    "answer": null,
+    "status": "pending",
+    "category": "color",
+    "createdAt": "2024-02-10T14:00:00Z"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "msg1",
+    "convId": "conv1",
+    "sender": "user",
+    "text": "Hi! I need help with outfit for job interview",
+    "createdAt": "2024-02-18T10:00:00Z"
+  },
+  {
+    "id": "msg2",
+    "convId": "conv1", 
+    "sender": "stylist",
+    "text": "Hello! I'd be happy to help. What type of job is it for?",
+    "createdAt": "2024-02-18T10:05:00Z"
+  },
+  {
+    "id": "msg3",
+    "convId": "conv2",
+    "sender": "user", 
+    "text": "Looking for casual weekend outfits",
+    "createdAt": "2024-02-18T11:00:00Z"
+  }
+]

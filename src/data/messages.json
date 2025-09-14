@@ -1,0 +1,75 @@
+[
+  {
+    "id": "msg1",
+    "conversationId": "conv1",
+    "sender": {
+      "id": "u1",
+      "name": "Sarah Johnson",
+      "avatarUrl": "",
+      "role": "user"
+    },
+    "type": "text",
+    "content": "Hi! I have a job interview next week for a marketing director position. I want to look professional but also creative. Can you help me put together an outfit from my wardrobe?",
+    "createdAt": "2024-02-18T10:00:00Z",
+    "status": "read",
+    "readBy": ["s1"]
+  },
+  {
+    "id": "msg2",
+    "conversationId": "conv1",
+    "sender": {
+      "id": "s1",
+      "name": "Emma Style",
+      "avatarUrl": "",
+      "role": "stylist"
+    },
+    "type": "text",
+    "content": "Hello Sarah! I'd be happy to help you create the perfect interview look. A marketing director role is great because you can show both professionalism and creativity. Let me take a look at your wardrobe first.",
+    "createdAt": "2024-02-18T10:05:00Z",
+    "status": "read",
+    "readBy": ["u1"]
+  },
+  {
+    "id": "msg3",
+    "conversationId": "conv1",
+    "sender": {
+      "id": "u1",
+      "name": "Sarah Johnson",
+      "avatarUrl": "",
+      "role": "user"
+    },
+    "type": "text",
+    "content": "Thanks! That outfit suggestion is perfect for my interview!",
+    "createdAt": "2024-02-18T10:30:00Z",
+    "status": "read",
+    "readBy": ["s1"]
+  },
+  {
+    "id": "msg4",
+    "conversationId": "conv2",
+    "sender": {
+      "id": "u2",
+      "name": "Mike Chen",
+      "avatarUrl": "",
+      "role": "user"
+    },
+    "type": "text",
+    "content": "I'm going to a wedding this weekend and need outfit advice",
+    "createdAt": "2024-02-18T08:15:00Z",
+    "status": "delivered"
+  },
+  {
+    "id": "msg5",
+    "conversationId": "conv3",
+    "sender": {
+      "id": "u3",
+      "name": "Emma Davis",
+      "avatarUrl": "",
+      "role": "user"
+    },
+    "type": "text",
+    "content": "Could you help me create a capsule wardrobe for work?",
+    "createdAt": "2024-02-18T11:00:00Z",
+    "status": "sent"
+  }
+]

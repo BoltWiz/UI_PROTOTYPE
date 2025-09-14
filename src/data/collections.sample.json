@@ -1,0 +1,59 @@
+[
+  {
+    "id": "sample1",
+    "title": "Urban Professional",
+    "cover": "/mock/outfit1.jpg",
+    "tags": ["professional", "urban", "minimalist"],
+    "season": "all-season",
+    "occasion": "work",
+    "shortDescription": "Sophisticated looks for the modern professional",
+    "description": "A carefully curated collection of professional outfits that blend comfort with sophistication. Perfect for office environments and business meetings.",
+    "itemsPreview": [
+      { "type": "top", "imageUrl": "/mock/navy-polo.jpg", "colors": ["navy"] },
+      { "type": "bottom", "imageUrl": "/mock/dark-jeans.jpg", "colors": ["dark-blue"] },
+      { "type": "shoes", "imageUrl": "/mock/brown-loafers.jpg", "colors": ["brown"] },
+      { "type": "outer", "imageUrl": "/mock/beige-coat.jpg", "colors": ["beige"] }
+    ],
+    "stylistName": "Sarah Kim",
+    "likes": 342,
+    "views": 1250
+  },
+  {
+    "id": "sample2", 
+    "title": "Weekend Casual",
+    "cover": "/mock/outfit2.jpg",
+    "tags": ["casual", "weekend", "comfort"],
+    "season": "spring-summer",
+    "occasion": "casual",
+    "shortDescription": "Relaxed yet stylish looks for your downtime",
+    "description": "Comfortable and effortlessly chic outfits perfect for weekend activities, casual meetups, and leisure time.",
+    "itemsPreview": [
+      { "type": "top", "imageUrl": "/mock/white-tee.jpg", "colors": ["white"] },
+      { "type": "bottom", "imageUrl": "/mock/navy-chino.jpg", "colors": ["navy"] },
+      { "type": "shoes", "imageUrl": "/mock/white-sneaker.jpg", "colors": ["white"] },
+      { "type": "accessory", "imageUrl": "/mock/black-belt.jpg", "colors": ["black"] }
+    ],
+    "stylistName": "Mike Chen",
+    "likes": 189,
+    "views": 890
+  },
+  {
+    "id": "sample3",
+    "title": "Evening Elegance", 
+    "cover": "/mock/beige-coat.jpg",
+    "tags": ["elegant", "evening", "formal"],
+    "season": "autumn-winter",
+    "occasion": "formal",
+    "shortDescription": "Sophisticated ensembles for special occasions",
+    "description": "Elegant and refined outfits designed for evening events, dinner dates, and formal gatherings.",
+    "itemsPreview": [
+      { "type": "outer", "imageUrl": "/mock/beige-coat.jpg", "colors": ["beige"] },
+      { "type": "top", "imageUrl": "/mock/navy-polo.jpg", "colors": ["navy"] },
+      { "type": "bottom", "imageUrl": "/mock/dark-jeans.jpg", "colors": ["dark"] },
+      { "type": "shoes", "imageUrl": "/mock/brown-loafers.jpg", "colors": ["brown"] }
+    ],
+    "stylistName": "Emma Davis",
+    "likes": 456,
+    "views": 1680
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "a1",
+    "adminId": "admin",
+    "action": "hide_post",
+    "targetType": "post",
+    "targetId": "p1",
+    "reason": "Inappropriate content reported by multiple users",
+    "metadata": {
+      "reportCount": 3,
+      "autoAction": false
+    },
+    "timestamp": "2024-01-25T10:30:00Z"
+  },
+  {
+    "id": "a2", 
+    "adminId": "admin",
+    "action": "approve_post",
+    "targetType": "post",
+    "targetId": "p2",
+    "reason": "Content reviewed and deemed appropriate",
+    "metadata": {
+      "reviewedBy": "admin",
+      "previousStatus": "reported"
+    },
+    "timestamp": "2024-02-01T14:20:00Z"
+  }
+]

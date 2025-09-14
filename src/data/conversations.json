@@ -1,0 +1,77 @@
+[
+  {
+    "id": "conv1",
+    "participants": [
+      {
+        "id": "u1",
+        "name": "Sarah Johnson",
+        "avatarUrl": "",
+        "role": "user",
+        "isOnline": true,
+        "lastSeen": "2024-02-18T10:30:00Z"
+      },
+      {
+        "id": "s1",
+        "name": "Emma Style",
+        "avatarUrl": "",
+        "role": "stylist",
+        "isOnline": false,
+        "lastSeen": "2024-02-18T09:45:00Z"
+      }
+    ],
+    "lastMessage": "Thanks! That outfit suggestion is perfect for my interview!",
+    "unreadCount": 0,
+    "updatedAt": "2024-02-18T10:30:00Z",
+    "starred": false
+  },
+  {
+    "id": "conv2",
+    "participants": [
+      {
+        "id": "u2",
+        "name": "Mike Chen",
+        "avatarUrl": "",
+        "role": "user",
+        "isOnline": false,
+        "lastSeen": "2024-02-18T08:15:00Z"
+      },
+      {
+        "id": "s1",
+        "name": "Emma Style",
+        "avatarUrl": "",
+        "role": "stylist",
+        "isOnline": false,
+        "lastSeen": "2024-02-18T09:45:00Z"
+      }
+    ],
+    "lastMessage": "I'm going to a wedding this weekend and need outfit advice",
+    "unreadCount": 2,
+    "updatedAt": "2024-02-18T08:15:00Z",
+    "starred": true
+  },
+  {
+    "id": "conv3",
+    "participants": [
+      {
+        "id": "u3",
+        "name": "Emma Davis",
+        "avatarUrl": "",
+        "role": "user",
+        "isOnline": true,
+        "lastSeen": "2024-02-18T11:00:00Z"
+      },
+      {
+        "id": "s1",
+        "name": "Emma Style",
+        "avatarUrl": "",
+        "role": "stylist",
+        "isOnline": false,
+        "lastSeen": "2024-02-18T09:45:00Z"
+      }
+    ],
+    "lastMessage": "Could you help me create a capsule wardrobe for work?",
+    "unreadCount": 1,
+    "updatedAt": "2024-02-18T11:00:00Z",
+    "starred": false
+  }
+]

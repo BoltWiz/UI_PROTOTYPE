@@ -1,0 +1,78 @@
+[
+  {
+    "id": "c1",
+    "slug": "autumn-layers-2024",
+    "title": "Autumn Layers Challenge",
+    "brief": "Show us your best layering techniques for the autumn season! Create a cozy yet stylish look that captures the essence of fall fashion.",
+    "cover": "/mock/outfit1.jpg",
+    "hashtag": "#AutumnLayers2024",
+    "curatorId": "s1",
+    "startAt": "2024-09-01T00:00:00Z",
+    "endAt": "2024-09-30T23:59:59Z",
+    "status": "active",
+    "rules": [
+      "Must include at least 2 layers in your outfit",
+      "Use autumn colors (browns, oranges, deep reds, etc.)",
+      "Include the hashtag #AutumnLayers2024 in your post",
+      "Original content only - no reposts"
+    ],
+    "prizes": [
+      "1st Place: $500 shopping voucher",
+      "2nd Place: $300 shopping voucher", 
+      "3rd Place: $200 shopping voucher",
+      "Curator's Pick: Special styling session"
+    ],
+    "collections": ["col1"],
+    "styleGuides": ["sg1"],
+    "createdAt": "2024-08-15T10:00:00Z",
+    "updatedAt": "2024-08-15T10:00:00Z"
+  },
+  {
+    "id": "c2", 
+    "slug": "minimalist-monday",
+    "title": "Minimalist Monday",
+    "brief": "Less is more! Create stunning outfits using minimal pieces that make maximum impact. Focus on clean lines, neutral colors, and timeless silhouettes.",
+    "cover": "/mock/outfit2.jpg",
+    "hashtag": "#MinimalistMonday",
+    "startAt": "2024-09-15T00:00:00Z",
+    "endAt": "2024-10-15T23:59:59Z", 
+    "status": "active",
+    "rules": [
+      "Maximum 4 clothing items (not including undergarments)",
+      "Stick to neutral color palette",
+      "Focus on quality over quantity",
+      "Include styling explanation in caption"
+    ],
+    "prizes": [
+      "Winner: Premium capsule wardrobe consultation",
+      "Runner-up: Minimalist jewelry set"
+    ],
+    "createdAt": "2024-09-01T09:00:00Z",
+    "updatedAt": "2024-09-01T09:00:00Z"
+  },
+  {
+    "id": "c3",
+    "slug": "winter-workplace", 
+    "title": "Winter Workplace Style",
+    "brief": "Professional winter outfits that keep you warm and stylish at the office. Show how to layer smartly for business environments.",
+    "cover": "/mock/navy-chino.jpg",
+    "hashtag": "#WinterWorkplace",
+    "curatorId": "s1",
+    "startAt": "2024-11-01T00:00:00Z",
+    "endAt": "2024-11-30T23:59:59Z",
+    "status": "upcoming",
+    "rules": [
+      "Business appropriate attire only",
+      "Must be suitable for winter weather",
+      "Include both indoor and outdoor layers",
+      "Professional styling required"
+    ],
+    "prizes": [
+      "Grand Prize: Professional wardrobe makeover worth $1000",
+      "2nd Place: Premium blazer",
+      "3rd Place: Professional accessories set"
+    ],
+    "createdAt": "2024-10-01T14:00:00Z",
+    "updatedAt": "2024-10-01T14:00:00Z"
+  }
+]

@@ -1,0 +1,31 @@
+[
+  {
+    "id": "o1",
+    "userId": "u1",
+    "itemIds": ["i1", "i2", "i3"],
+    "context": {
+      "date": "2025-08-15",
+      "goal": "casual",
+      "weather": {
+        "condition": "sunny",
+        "tempC": 32
+      }
+    },
+    "explanation": "Basic white tee with navy chinos - perfect for hot sunny weather. Comfortable and breathable.",
+    "score": 0.77,
+    "isFavorite": true
+  },
+  {
+    "id": "o2",
+    "userId": "u1",
+    "itemIds": ["i6", "i2", "i8", "i5"],
+    "context": {
+      "date": "2025-08-14",
+      "goal": "smart",
+      "occasion": "meeting"
+    },
+    "explanation": "Navy polo with chinos and leather loafers - smart casual for business meetings.",
+    "score": 0.85,
+    "isFavorite": false
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "log1",
+    "adminId": "admin1",
+    "adminName": "Admin User",
+    "action": "RESOLVE_REPORT",
+    "targetType": "report",
+    "targetId": "r1",
+    "details": "Resolved report - no violation found",
+    "timestamp": "2024-02-18T14:30:00Z"
+  },
+  {
+    "id": "log2", 
+    "adminId": "admin1",
+    "adminName": "Admin User",
+    "action": "HIDE_POST",
+    "targetType": "post",
+    "targetId": "p123",
+    "details": "Post hidden for inappropriate content",
+    "timestamp": "2024-02-17T10:15:00Z"
+  }
+]

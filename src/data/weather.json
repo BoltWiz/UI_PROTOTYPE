@@ -1,0 +1,20 @@
+{
+  "city": "Ho Chi Minh",
+  "today": {
+    "tempC": 32,
+    "condition": "sunny",
+    "humidity": 65
+  },
+  "forecast": [
+    {
+      "day": "+1",
+      "tempC": 31,
+      "condition": "sunny"
+    },
+    {
+      "day": "+2",
+      "tempC": 29,
+      "condition": "rain"
+    }
+  ]
+}
