@@ -14,6 +14,7 @@ import {
   MessageSquare,
   Trophy,
   User,
+  Star,
 } from 'lucide-react';
 import { getCurrentUser } from '@/lib/mock';
 import { useAuth } from '@/contexts/AuthContext';
