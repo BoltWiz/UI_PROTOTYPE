@@ -12,6 +12,10 @@ import { useToast } from '@/hooks/use-toast';
 import { Item, Outfit, SuggestContext } from '@/types';
 import { getItems, getCurrentUser, getWeatherData, saveOutfitToHistory, getUserPreferences } from '@/lib/mock';
 import { suggestOutfit } from '@/lib/engine';
+import { ShoppingSuggestions } from '@/components/suggestions/ShoppingSuggestions';
+import { WardrobeAnalysis } from '@/components/suggestions/WardrobeAnalysis';
+import { generateShoppingSuggestions } from '@/lib/suggestions';
+import { WardrobeGap } from '@/types/suggestions';
 import { cn } from '@/lib/utils';
 
 interface ChatMessage {
@@ -39,12 +43,16 @@ export default function Suggest() {
   ]);
   const [chatInput, setChatInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [wardrobeGaps, setWardrobeGaps] = useState<WardrobeGap[]>([]);
+  const [selectedGap, setSelectedGap] = useState<WardrobeGap | null>(null);
   const { toast } = useToast();
   const currentUser = getCurrentUser();
 
   useEffect(() => {
     loadItems();
     loadPreferences();
+    analyzeWardrobe();
   }, []);
 
   const loadItems = () => {
@@ -58,6 +66,12 @@ export default function Suggest() {
       ...prev,
       avoidRepeatDays: prefs.avoidRepeatDays || 3
     }));
+  };
+
+  const analyzeWardrobe = () => {
+    const userItems = getItems(currentUser.id);
+    const suggestions = generateShoppingSuggestions(userItems);
+    setWardrobeGaps(suggestions.gaps);
   };
 
   const handleGenerateOutfit = async () => {
@@ -165,6 +179,18 @@ export default function Suggest() {
     }, 1500);
   };
 
+  const handleConsultStylist = (stylistId: string) => {
+    toast({
+      title: "Tư vấn stylist",
+      description: "Đang kết nối với stylist chuyên nghiệp...",
+    });
+  };
+
+  const handleViewGap = (gap: WardrobeGap) => {
+    setSelectedGap(gap);
+    setShowSuggestions(true);
+  };
+
   const outfitItems = suggestedOutfit 
     ? items.filter(item => suggestedOutfit.itemIds.includes(item.id))
     : [];
@@ -177,10 +203,36 @@ export default function Suggest() {
           Outfit Suggestions
         </h1>
         <p className="text-muted-foreground mt-1">
-          Get AI-powered outfit recommendations and chat with our style assistant
+          Get AI-powered outfit recommendations, wardrobe analysis, and shopping suggestions
         </p>
       </div>
 
+      {/* Tabs for different features */}
+      <div className="flex gap-1 bg-muted p-1 rounded-lg w-fit mx-auto">
+        <button
+          onClick={() => setShowSuggestions(false)}
+          className={`px-6 py-2 rounded-md transition-all duration-200 text-sm font-medium ${
+            !showSuggestions
+              ? 'bg-background text-foreground shadow-sm'
+              : 'text-muted-foreground hover:text-foreground'
+          }`}
+        >
+          Outfit Generator
+        </button>
+        <button
+          onClick={() => setShowSuggestions(true)}
+          className={`px-6 py-2 rounded-md transition-all duration-200 text-sm font-medium ${
+            showSuggestions
+              ? 'bg-background text-foreground shadow-sm'
+              : 'text-muted-foreground hover:text-foreground'
+          }`}
+        >
+          Wardrobe Analysis
+        </button>
+      </div>
+
+      {!showSuggestions ? (
+        <>
       {/* Filters */}
       <Card className="p-6 bg-card/50 backdrop-blur-sm">
         <div className="space-y-4">
@@ -366,6 +418,36 @@ export default function Suggest() {
             Your wardrobe is empty. Add some items to start getting outfit suggestions!
           </AlertDescription>
         </Alert>
+      )}
+        </>
+      ) : (
+        <div className="space-y-6">
+          {/* Wardrobe Analysis */}
+          <WardrobeAnalysis
+            userItems={items}
+            gaps={wardrobeGaps}
+            onViewGap={handleViewGap}
+          />
+
+          {/* Shopping Suggestions */}
+          {wardrobeGaps.length > 0 && (
+            <ShoppingSuggestions
+              gaps={wardrobeGaps}
+              onConsultStylist={handleConsultStylist}
+            />
+          )}
+
+          {/* No gaps found */}
+          {wardrobeGaps.length === 0 && (
+            <Card className="p-8 text-center">
+              <CheckCircle className="w-12 h-12 mx-auto text-green-500 mb-4" />
+              <h3 className="text-lg font-semibold mb-2">Tủ đồ hoàn hảo!</h3>
+              <p className="text-muted-foreground">
+                AI không phát hiện thiếu hụt nào trong tủ đồ của bạn. Bạn có thể tạo ra nhiều outfit đa dạng!
+              </p>
+            </Card>
+          )}
+        </div>
       )}
     </div>
   );

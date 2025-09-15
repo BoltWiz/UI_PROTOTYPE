@@ -10,6 +10,9 @@ import { SidebarStats } from '@/components/wardrobe/SidebarStats';
 import { AddItemForm } from '@/components/wardrobe/AddItemForm';
 import { BuilderDrawer } from '@/components/outfit-builder/BuilderDrawer';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { ShoppingSuggestions } from '@/components/suggestions/ShoppingSuggestions';
+import { generateShoppingSuggestions } from '@/lib/suggestions';
+import { WardrobeGap } from '@/types/suggestions';
 import { cn } from '@/lib/utils';
 
 export default function Wardrobe() {
@@ -22,11 +25,20 @@ export default function Wardrobe() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showOutfitBuilder, setShowOutfitBuilder] = useState(false);
   const [activeItem, setActiveItem] = useState<any>(null);
+  const [showShoppingSuggestions, setShowShoppingSuggestions] = useState(false);
+  const [wardrobeGaps, setWardrobeGaps] = useState<WardrobeGap[]>([]);
 
   const { items, loading, error } = useWardrobe(filters);
   const { collections } = useCollections();
   const { deleteItems, suggestOutfitsFor } = useWardrobeMutations();
   const { toast } = useToast();
+
+  useEffect(() => {
+    if (items.length > 0) {
+      const suggestions = generateShoppingSuggestions(items);
+      setWardrobeGaps(suggestions.gaps);
+    }
+  }, [items]);
 
   const activeFiltersCount = useMemo(() => {
     let count = 0;
@@ -96,6 +108,13 @@ export default function Wardrobe() {
     setShowAddModal(true);
   };
 
+  const handleConsultStylist = (stylistId: string) => {
+    toast({
+      title: "Tư vấn stylist",
+      description: "Đang kết nối với stylist chuyên nghiệp...",
+    });
+  };
+
   return (
     <div className="container max-w-7xl mx-auto px-4 py-6 space-y-8">
       {/* Header */}
@@ -106,17 +125,37 @@ export default function Wardrobe() {
             <span className="text-accent">Wardrobe</span>
           </h1>
           <p className="text-primary-foreground/80 mt-1">
-            Manage your clothing collection with smart organization
+            Manage your clothing collection with smart organization and AI recommendations
           </p>
         </div>
-        <Button 
-          onClick={handleAddItem}
-          className="bg-gradient-to-r from-primary to-primary-glow"
-        >
-          <Plus className="w-4 h-4 mr-2" />
-          Add Item
-        </Button>
+        <div className="flex gap-2">
+          <Button 
+            onClick={() => setShowShoppingSuggestions(!showShoppingSuggestions)}
+            variant={showShoppingSuggestions ? "default" : "outline"}
+            className={showShoppingSuggestions ? "bg-gradient-to-r from-primary to-primary-glow" : ""}
+          >
+            <Sparkles className="w-4 h-4 mr-2" />
+            AI Suggestions
+          </Button>
+          <Button 
+            onClick={handleAddItem}
+            className="bg-gradient-to-r from-primary to-primary-glow"
+          >
+            <Plus className="w-4 h-4 mr-2" />
+            Add Item
+          </Button>
+        </div>
       </div>
+
+      {/* AI Shopping Suggestions */}
+      {showShoppingSuggestions && wardrobeGaps.length > 0 && (
+        <Card className="p-6 bg-gradient-to-r from-primary/5 to-accent/5 border-primary/20">
+          <ShoppingSuggestions
+            gaps={wardrobeGaps}
+            onConsultStylist={handleConsultStylist}
+          />
+        </Card>
+      )}
 
       {/* Toolbar */}
       <Toolbar
