@@ -207,22 +207,6 @@ export default function Collections() {
         )}
 
         {/* Guest Action Buttons for Demo */}
-        <div className="fixed bottom-6 right-6 flex flex-col gap-2">
-          <Button 
-            size="sm" 
-            variant="outline"
-            onClick={() => handleGuestAction('lưu')}
-          >
-            <Heart className="w-4 h-4 mr-2" />
-            Save
-          </Button>
-          <Button 
-            size="sm" 
-            onClick={() => handleUseInOutfit(collections[0])}
-          >
-            Sử dụng trong outfit
-          </Button>
-        </div>
       </div>
     </div>
   );
