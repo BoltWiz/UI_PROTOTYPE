@@ -380,31 +380,28 @@ export default function Daily() {
             </div>
 
             {/* Collection Info */}
-                <Badge className="bg-gradient-to-r from-accent to-primary text-white flex items-center gap-1">
-                  <Star className="w-3 h-3 fill-current" />
-                  Verified Stylist
+            <div className="bg-accent/5 rounded-lg p-4 border border-accent/20">
+              <div className="flex items-center gap-2 mb-2">
                 <Star className="w-4 h-4 text-accent" />
                 <span className="text-sm font-medium text-accent">Verified Professional Styling</span>
-              </div>
-                This outfit combination has been professionally curated by verified stylist {collectionOutfit.stylistName}. 
-                It's designed to work harmoniously together, follows current fashion trends, and has been validated by our styling experts.
-                <p className="text-sm text-muted-foreground">
-                  Curated by 
-                </p>
-                <button
-                  onClick={() => {
-                    const stylistId = collectionOutfit.stylistName.toLowerCase().replace(/\s+/g, '-');
-                    navigate(`/stylist-profile/${stylistId}`);
-                  }}
-                  className="text-sm font-medium text-accent hover:underline cursor-pointer"
-                >
-                  {collectionOutfit.stylistName}
-                </button>
                 <Badge variant="outline" className="text-xs border-accent/30 text-accent">
                   <Star className="w-3 h-3 mr-1 fill-current" />
                   Verified
                 </Badge>
               </div>
+              <p className="text-sm text-muted-foreground mb-2">
+                This outfit combination has been professionally curated by verified stylist{' '}
+                <button
+                  onClick={() => {
+                    const stylistId = collectionOutfit.stylistName.toLowerCase().replace(/\s+/g, '-');
+                    navigate(`/stylist-profile/${stylistId}`);
+                  }}
+                  className="font-medium text-accent hover:underline cursor-pointer"
+                >
+                  {collectionOutfit.stylistName}
+                </button>
+                . It's designed to work harmoniously together, follows current fashion trends, and has been validated by our styling experts.
+              </p>
             </div>
           </div>
         </Card>
