@@ -42,25 +42,38 @@ export default function Collections() {
   };
 
   const handleUseInOutfit = (collection: any) => {
-    // Save collection outfit to localStorage for Daily page
-    const collectionOutfit = {
-      id: `collection_${collection.id}_${Date.now()}`,
-      source: 'collection',
-      collectionId: collection.id,
-      collectionTitle: collection.title,
-      stylistName: collection.stylistName,
-      items: collection.itemsPreview,
-      savedAt: new Date().toISOString()
-    };
-    
-    localStorage.setItem('collection_outfit', JSON.stringify(collectionOutfit));
-    
-    toast({
-      title: "Outfit saved from collection",
-      description: `"${collection.title}" has been added to your daily outfits`
-    });
-    
-    navigate('/daily');
+    try {
+      // Save collection outfit to localStorage for Daily page
+      const collectionOutfit = {
+        id: `collection_${collection.id}_${Date.now()}`,
+        source: 'collection',
+        collectionId: collection.id,
+        collectionTitle: collection.title,
+        stylistName: collection.stylistName,
+        items: collection.itemsPreview,
+        savedAt: new Date().toISOString()
+      };
+      
+      localStorage.setItem('collection_outfit', JSON.stringify(collectionOutfit));
+      
+      // Increment usage count
+      const currentCount = localStorage.getItem(`collection_usage_${collection.id}`);
+      const newCount = currentCount ? parseInt(currentCount) + 1 : 1;
+      localStorage.setItem(`collection_usage_${collection.id}`, newCount.toString());
+      
+      toast({
+        title: "Outfit saved from collection",
+        description: `"${collection.title}" has been added to your daily outfits`
+      });
+      
+      navigate('/daily');
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to save outfit from collection",
+        variant: "destructive"
+      });
+    }
   };
 
   useEffect(() => {

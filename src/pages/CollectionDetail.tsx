@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Heart, Bookmark, Share2, Eye } from 'lucide-react';
+import { ArrowLeft, Heart, Bookmark, Share2, Eye, Users } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import collectionsData from '@/data/collections.sample.json';
 
@@ -15,6 +15,51 @@ export default function CollectionDetail() {
   const [collection] = useState(() => 
     collectionsData.find(c => c.id === id)
   );
+  const [usageCount, setUsageCount] = useState(0);
+
+  useEffect(() => {
+    // Load usage count from localStorage
+    if (collection) {
+      const savedCount = localStorage.getItem(`collection_usage_${collection.id}`);
+      setUsageCount(savedCount ? parseInt(savedCount) : Math.floor(Math.random() * 50) + 10);
+    }
+  }, [collection]);
+
+  const handleUseInOutfit = () => {
+    if (!collection) return;
+    
+    try {
+      const collectionOutfit = {
+        id: `collection_${collection.id}_${Date.now()}`,
+        source: 'collection',
+        collectionId: collection.id,
+        collectionTitle: collection.title,
+        stylistName: collection.stylistName,
+        items: collection.itemsPreview,
+        savedAt: new Date().toISOString()
+      };
+      
+      localStorage.setItem('collection_outfit', JSON.stringify(collectionOutfit));
+      
+      // Increment usage count
+      const newCount = usageCount + 1;
+      setUsageCount(newCount);
+      localStorage.setItem(`collection_usage_${collection.id}`, newCount.toString());
+      
+      toast({
+        title: "Outfit saved from collection",
+        description: `"${collection.title}" has been added to your daily outfits`
+      });
+      
+      navigate('/daily');
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to save outfit from collection",
+        variant: "destructive"
+      });
+    }
+  };
 
   const relatedCollections = collectionsData
     .filter(c => c.id !== id && c.tags.some(tag => collection?.tags.includes(tag)))
@@ -136,6 +181,10 @@ export default function CollectionDetail() {
                 <Heart className="w-4 h-4" />
                 {collection.likes} lượt thích
               </span>
+              <span className="flex items-center gap-1">
+                <Users className="w-4 h-4" />
+                {usageCount} đã sử dụng
+              </span>
             </div>
 
             <div className="flex gap-3">
@@ -147,26 +196,7 @@ export default function CollectionDetail() {
                 <Heart className="w-4 h-4 mr-2" />
                 Thích
               </Button>
-              <Button variant="outline" onClick={() => {
-                const collectionOutfit = {
-                  id: `collection_${collection.id}_${Date.now()}`,
-                  source: 'collection',
-                  collectionId: collection.id,
-                  collectionTitle: collection.title,
-                  stylistName: collection.stylistName,
-                  items: collection.itemsPreview,
-                  savedAt: new Date().toISOString()
-                };
-                
-                localStorage.setItem('collection_outfit', JSON.stringify(collectionOutfit));
-                
-                toast({
-                  title: "Outfit saved from collection",
-                  description: `"${collection.title}" has been added to your daily outfits`
-                });
-                
-                window.location.href = '/daily';
-              }}>
+              <Button variant="outline" onClick={handleUseInOutfit}>
                 <Share2 className="w-4 h-4 mr-2" />
                 Sử dụng trong outfit
               </Button>
