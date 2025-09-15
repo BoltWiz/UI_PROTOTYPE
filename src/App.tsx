@@ -46,6 +46,7 @@ import ChallengeManagement from "@/pages/admin/ChallengeManagement";
 import { RouteGuard } from "@/components/RouteGuard";
 import Profile from "@/pages/Profile";
 import StylistProfile from "@/pages/StylistProfile";
+import Subscription from "@/pages/Subscription";
 
 const queryClient = new QueryClient();
 
@@ -101,6 +102,9 @@ function AppRoutes() {
       
       {/* Profile Route */}
       <Route path="/profile" element={<Layout><Profile /></Layout>} />
+      
+      {/* Subscription Route */}
+      <Route path="/subscription" element={<Layout><Subscription /></Layout>} />
       
       {/* Stylist Routes with StylistLayout */}
       <Route path="/stylist" element={<RouteGuard allowedRoles={['stylist']}><StylistLayout><StylistDashboard /></StylistLayout></RouteGuard>} />

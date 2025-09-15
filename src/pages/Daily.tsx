@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Calendar, Cloud, Clock, RefreshCw, Sparkles, ChevronDown, ChevronUp, Star, Bookmark, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -12,6 +13,7 @@ import { suggestOutfit } from '@/lib/engine';
 import { getWeatherRecommendation } from '@/lib/weather';
 
 export default function Daily() {
+  const navigate = useNavigate();
   const [dailyOutfit, setDailyOutfit] = useState<Outfit | null>(null);
   const [weather, setWeather] = useState<Weather | null>(null);
   const [schedule, setSchedule] = useState<Schedule | null>(null);
@@ -378,15 +380,31 @@ export default function Daily() {
             </div>
 
             {/* Collection Info */}
-            <div className="bg-accent/5 p-4 rounded-lg border border-accent/20">
-              <div className="flex items-center gap-2 mb-2">
+                <Badge className="bg-gradient-to-r from-accent to-primary text-white flex items-center gap-1">
+                  <Star className="w-3 h-3 fill-current" />
+                  Verified Stylist
                 <Star className="w-4 h-4 text-accent" />
-                <span className="text-sm font-medium text-accent">Professional Styling</span>
+                <span className="text-sm font-medium text-accent">Verified Professional Styling</span>
               </div>
-              <p className="text-sm text-muted-foreground">
-                This outfit combination has been professionally curated by {collectionOutfit.stylistName}. 
-                It's designed to work harmoniously together and follows current fashion trends.
-              </p>
+                This outfit combination has been professionally curated by verified stylist {collectionOutfit.stylistName}. 
+                It's designed to work harmoniously together, follows current fashion trends, and has been validated by our styling experts.
+                <p className="text-sm text-muted-foreground">
+                  Curated by 
+                </p>
+                <button
+                  onClick={() => {
+                    const stylistId = collectionOutfit.stylistName.toLowerCase().replace(/\s+/g, '-');
+                    navigate(`/stylist-profile/${stylistId}`);
+                  }}
+                  className="text-sm font-medium text-accent hover:underline cursor-pointer"
+                >
+                  {collectionOutfit.stylistName}
+                </button>
+                <Badge variant="outline" className="text-xs border-accent/30 text-accent">
+                  <Star className="w-3 h-3 mr-1 fill-current" />
+                  Verified
+                </Badge>
+              </div>
             </div>
           </div>
         </Card>

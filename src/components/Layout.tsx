@@ -42,6 +42,7 @@ const navigationItems = [
   { path: '/collections', label: 'Collections', icon: Image },
   { path: '/community', label: 'Community', icon: Users },
   { path: '/challenges', label: 'Challenges', icon: Trophy },
+  { path: '/subscription', label: 'Subscription', icon: Star },
 ];
 
 export function Layout({ children }: LayoutProps) {
