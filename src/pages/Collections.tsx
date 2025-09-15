@@ -155,16 +155,16 @@ export default function Collections() {
 
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">
-                      bởi <button 
+                      bởi <span 
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
                           handleStylistClick(collection.stylistName);
                         }}
-                        className="text-primary hover:underline font-medium"
+                        className="text-primary hover:underline font-medium cursor-pointer"
                       >
                         {collection.stylistName}
-                      </button>
+                      </span>
                     </span>
                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1">

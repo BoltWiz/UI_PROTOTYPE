@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -9,6 +10,7 @@ import collectionsData from '@/data/collections.sample.json';
 
 export default function CollectionDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { toast } = useToast();
   const [collection] = useState(() => 
     collectionsData.find(c => c.id === id)
@@ -117,15 +119,15 @@ export default function CollectionDetail() {
             </div>
 
             <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
-              <span>bởi <button 
+              <span>bởi <span 
                 onClick={() => {
                   const stylistId = collection.stylistName.toLowerCase().replace(' ', '-');
-                  window.location.href = `/stylist-profile/${stylistId}`;
+                  navigate(`/stylist-profile/${stylistId}`);
                 }}
-                className="text-primary hover:underline font-medium"
+                className="text-primary hover:underline font-medium cursor-pointer"
               >
                 {collection.stylistName}
-              </button></span>
+              </span></span>
               <span className="flex items-center gap-1">
                 <Eye className="w-4 h-4" />
                 {collection.views} lượt xem
@@ -229,8 +231,8 @@ export default function CollectionDetail() {
                           onClick={(e) => {
                             e.preventDefault();
                             e.stopPropagation();
-                            const stylistId = relatedCollection.stylistName.toLowerCase().replace(' ', '-');
-                            window.location.href = `/stylist-profile/${stylistId}`;
+                            const stylistId = relatedCollection.stylistName.toLowerCase().replace(/\s+/g, '-');
+                            navigate(`/stylist-profile/${stylistId}`);
                           }}
                           className="text-primary hover:underline font-medium"
                         >
