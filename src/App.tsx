@@ -42,8 +42,8 @@ import ChallengeDetail from "@/pages/ChallengeDetail";
 import AdminChallenges from "@/pages/admin/AdminChallenges";
 import NotFound from "@/pages/NotFound";
 import Welcome from "@/pages/Welcome";
-import ChallengeHistory from "@/pages/ChallengeHistory";
 import ChallengeManagement from "@/pages/admin/ChallengeManagement";
+import Profile from "@/pages/Profile";
 import { RouteGuard } from "@/components/RouteGuard";
 
 const queryClient = new QueryClient();
@@ -90,7 +90,7 @@ function AppRoutes() {
       <Route path="/community/trends" element={<Layout><CommunityTrends /></Layout>} />
       <Route path="/challenges" element={<Layout><Challenges /></Layout>} />
       <Route path="/challenges/:slug" element={<Layout><ChallengeDetail /></Layout>} />
-      <Route path="/profile/challenges" element={<Layout><ChallengeHistory /></Layout>} />
+      <Route path="/profile" element={<Layout><Profile /></Layout>} />
       
       {/* Public Collections Routes */}
       <Route path="/collections" element={<Layout><Collections /></Layout>} />

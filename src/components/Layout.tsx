@@ -34,7 +34,7 @@ const navigationItems = [
   { path: '/collections', label: 'Collections', icon: Image },
   { path: '/community', label: 'Community', icon: Users },
   { path: '/challenges', label: 'Challenges', icon: Trophy },
-  { path: '/profile/challenges', label: 'My Challenges', icon: Trophy },
+  { path: '/profile', label: 'Profile', icon: User },
 ];
 
 export function Layout({ children }: LayoutProps) {
