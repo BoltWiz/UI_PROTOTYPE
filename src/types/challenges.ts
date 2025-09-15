@@ -43,6 +43,17 @@ export interface ChallengeResult {
   finalizedAt: string;
 }
 
+export interface UserBadge {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  rarity: 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary';
+  earnedAt: string;
+  challengeId?: string;
+  points?: number;
+}
+
 export interface ChallengeStats {
   submissions: number;
   likes: number;

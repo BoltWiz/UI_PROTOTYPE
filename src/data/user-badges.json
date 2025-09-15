@@ -1,0 +1,45 @@
+[
+  {
+    "id": "badge1",
+    "userId": "u1",
+    "name": "Autumn Expert",
+    "description": "Won 2nd place in Autumn Layers Challenge",
+    "icon": "🍂",
+    "rarity": "rare",
+    "earnedAt": "2024-09-30T18:00:00Z",
+    "challengeId": "c1",
+    "points": 200
+  },
+  {
+    "id": "badge2",
+    "userId": "u1",
+    "name": "First Timer",
+    "description": "Participated in your first challenge",
+    "icon": "🌟",
+    "rarity": "common",
+    "earnedAt": "2024-09-05T14:30:00Z",
+    "challengeId": "c1",
+    "points": 50
+  },
+  {
+    "id": "badge3",
+    "userId": "u1",
+    "name": "Style Streak",
+    "description": "Participated in 2 consecutive challenges",
+    "icon": "🔥",
+    "rarity": "uncommon",
+    "earnedAt": "2024-09-16T09:45:00Z",
+    "points": 100
+  },
+  {
+    "id": "badge4",
+    "userId": "user-2",
+    "name": "Challenge Champion",
+    "description": "Won 1st place in Autumn Layers Challenge",
+    "icon": "👑",
+    "rarity": "epic",
+    "earnedAt": "2024-09-30T18:00:00Z",
+    "challengeId": "c1",
+    "points": 300
+  }
+]

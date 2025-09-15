@@ -31,6 +31,7 @@ interface AdminLayoutProps {
 const adminNavItems = [
   { path: '/admin/dashboard', label: 'Dashboard', icon: BarChart3 },
   { path: '/admin/users', label: 'Users', icon: Users },
+  { path: '/admin/challenge-management', label: 'Challenge Management', icon: Trophy },
   { path: '/admin/moderation', label: 'Moderation', icon: FileText },
   { path: '/admin/reports', label: 'Reports', icon: Flag },
   { path: '/admin/system', label: 'System', icon: Settings },
