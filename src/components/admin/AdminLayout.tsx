@@ -10,7 +10,8 @@ import {
   FileText,
   Flag,
   Settings,
-  LogOut
+  LogOut,
+  Trophy
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
