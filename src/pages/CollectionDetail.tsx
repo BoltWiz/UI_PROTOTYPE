@@ -117,7 +117,15 @@ export default function CollectionDetail() {
             </div>
 
             <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
-              <span>bởi {collection.stylistName}</span>
+              <span>bởi <button 
+                onClick={() => {
+                  const stylistId = collection.stylistName.toLowerCase().replace(' ', '-');
+                  window.location.href = `/stylist-profile/${stylistId}`;
+                }}
+                className="text-primary hover:underline font-medium"
+              >
+                {collection.stylistName}
+              </button></span>
               <span className="flex items-center gap-1">
                 <Eye className="w-4 h-4" />
                 {collection.views} lượt xem
@@ -137,7 +145,26 @@ export default function CollectionDetail() {
                 <Heart className="w-4 h-4 mr-2" />
                 Thích
               </Button>
-              <Button variant="outline" onClick={() => handleGuestAction('sử dụng')}>
+              <Button variant="outline" onClick={() => {
+                const collectionOutfit = {
+                  id: `collection_${collection.id}_${Date.now()}`,
+                  source: 'collection',
+                  collectionId: collection.id,
+                  collectionTitle: collection.title,
+                  stylistName: collection.stylistName,
+                  items: collection.itemsPreview,
+                  savedAt: new Date().toISOString()
+                };
+                
+                localStorage.setItem('collection_outfit', JSON.stringify(collectionOutfit));
+                
+                toast({
+                  title: "Outfit saved from collection",
+                  description: `"${collection.title}" has been added to your daily outfits`
+                });
+                
+                window.location.href = '/daily';
+              }}>
                 <Share2 className="w-4 h-4 mr-2" />
                 Sử dụng trong outfit
               </Button>
@@ -198,7 +225,17 @@ export default function CollectionDetail() {
                         {relatedCollection.shortDescription}
                       </p>
                       <div className="flex items-center justify-between text-sm text-muted-foreground">
-                        <span>bởi {relatedCollection.stylistName}</span>
+                        <span>bởi <button 
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            const stylistId = relatedCollection.stylistName.toLowerCase().replace(' ', '-');
+                            window.location.href = `/stylist-profile/${stylistId}`;
+                          }}
+                          className="text-primary hover:underline font-medium"
+                        >
+                          {relatedCollection.stylistName}
+                        </button></span>
                         <span className="flex items-center gap-1">
                           <Heart className="w-3 h-3" />
                           {relatedCollection.likes}

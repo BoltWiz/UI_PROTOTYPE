@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Calendar, Cloud, Clock, RefreshCw, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
+import { Calendar, Cloud, Clock, RefreshCw, Sparkles, ChevronDown, ChevronUp, Star, Bookmark, X } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -17,13 +17,22 @@ export default function Daily() {
   const [schedule, setSchedule] = useState<Schedule | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [isExplanationOpen, setIsExplanationOpen] = useState(false);
+  const [collectionOutfit, setCollectionOutfit] = useState<any>(null);
   const { toast } = useToast();
   const currentUser = getCurrentUser();
 
   useEffect(() => {
     loadDailyData();
     generateDailyOutfit();
+    loadCollectionOutfit();
   }, []);
+
+  const loadCollectionOutfit = () => {
+    const saved = localStorage.getItem('collection_outfit');
+    if (saved) {
+      setCollectionOutfit(JSON.parse(saved));
+    }
+  };
 
   const loadDailyData = () => {
     const weatherData = getWeatherData();
@@ -75,6 +84,40 @@ export default function Daily() {
     toast({
       title: "Daily outfit saved",
       description: "Added to your outfit history"
+    });
+  };
+
+  const handleSaveCollectionOutfit = () => {
+    if (!collectionOutfit) return;
+    
+    // Convert collection outfit to regular outfit format
+    const outfit = {
+      id: collectionOutfit.id,
+      userId: currentUser.id,
+      itemIds: collectionOutfit.items.map((item: any) => `collection_${item.type}_${Date.now()}`),
+      context: {
+        date: new Date().toISOString().split('T')[0],
+        goal: 'smart',
+        source: 'collection'
+      },
+      explanation: `Outfit inspired by "${collectionOutfit.collectionTitle}" collection by ${collectionOutfit.stylistName}`,
+      score: 0.9,
+      isFavorite: false
+    };
+    
+    saveOutfitToHistory(outfit);
+    toast({
+      title: "Collection outfit saved",
+      description: "Added to your outfit history"
+    });
+  };
+
+  const handleRemoveCollectionOutfit = () => {
+    localStorage.removeItem('collection_outfit');
+    setCollectionOutfit(null);
+    toast({
+      title: "Collection outfit removed",
+      description: "Removed from daily view"
     });
   };
 
@@ -260,6 +303,92 @@ export default function Daily() {
               </Button>
             </div>
           )}
+        </Card>
+      )}
+
+      {/* Collection Outfit */}
+      {collectionOutfit && (
+        <Card className="p-6 bg-gradient-to-br from-accent/10 via-accent/5 to-primary/10 border-2 border-accent/30">
+          <div className="space-y-4">
+            {/* Collection Outfit Header */}
+            <div className="flex items-center justify-between">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <Star className="w-5 h-5 text-accent" />
+                  <h3 className="text-xl font-semibold">From Collection</h3>
+                  <Badge className="bg-gradient-to-r from-accent to-primary text-white">
+                    Stylist Curated
+                  </Badge>
+                </div>
+                <h4 className="text-lg font-medium text-accent">{collectionOutfit.collectionTitle}</h4>
+                <p className="text-sm text-muted-foreground">
+                  Curated by <span className="font-medium text-accent">{collectionOutfit.stylistName}</span>
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <Button variant="outline" size="sm" onClick={handleRemoveCollectionOutfit}>
+                  <X className="w-4 h-4 mr-1" />
+                  Remove
+                </Button>
+                <Button size="sm" onClick={handleSaveCollectionOutfit} className="bg-gradient-to-r from-accent to-primary">
+                  <Bookmark className="w-4 h-4 mr-1" />
+                  Save to History
+                </Button>
+              </div>
+            </div>
+
+            {/* Collection Items Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {collectionOutfit.items.map((item: any, index: number) => (
+                <div key={index} className="relative">
+                  <div className="aspect-square bg-background rounded-xl overflow-hidden border-2 border-accent/20 hover:border-accent/50 transition-colors">
+                    <img
+                      src={item.imageUrl}
+                      alt={`${item.type} item`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="text-center mt-2">
+                    <Badge variant="outline" className="text-xs border-accent/30 text-accent">
+                      {item.type}
+                    </Badge>
+                    <div className="flex justify-center gap-1 mt-1">
+                      {item.colors.map((color: string, colorIndex: number) => (
+                        <div
+                          key={colorIndex}
+                          className="w-3 h-3 rounded-full border border-accent/30"
+                          style={{ 
+                            backgroundColor: color === 'white' ? '#ffffff' : 
+                                           color === 'navy' ? '#1e3a8a' : 
+                                           color === 'dark-blue' ? '#1e40af' : 
+                                           color === 'brown' ? '#92400e' : 
+                                           color === 'beige' ? '#d6d3d1' : 
+                                           color === 'black' ? '#000000' : color 
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  {/* Step indicator with accent color */}
+                  <div className="absolute -top-2 -left-2 w-6 h-6 bg-gradient-to-br from-accent to-primary text-white text-xs font-bold rounded-full flex items-center justify-center">
+                    {index + 1}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Collection Info */}
+            <div className="bg-accent/5 p-4 rounded-lg border border-accent/20">
+              <div className="flex items-center gap-2 mb-2">
+                <Star className="w-4 h-4 text-accent" />
+                <span className="text-sm font-medium text-accent">Professional Styling</span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                This outfit combination has been professionally curated by {collectionOutfit.stylistName}. 
+                It's designed to work harmoniously together and follows current fashion trends.
+              </p>
+            </div>
+          </div>
         </Card>
       )}
 

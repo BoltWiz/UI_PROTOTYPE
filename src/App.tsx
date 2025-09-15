@@ -45,6 +45,7 @@ import Welcome from "@/pages/Welcome";
 import ChallengeManagement from "@/pages/admin/ChallengeManagement";
 import { RouteGuard } from "@/components/RouteGuard";
 import Profile from "@/pages/Profile";
+import StylistProfile from "@/pages/StylistProfile";
 
 const queryClient = new QueryClient();
 
@@ -94,6 +95,9 @@ function AppRoutes() {
       {/* Public Collections Routes */}
       <Route path="/collections" element={<Layout><Collections /></Layout>} />
       <Route path="/collections/:id" element={<Layout><CollectionDetail /></Layout>} />
+      
+      {/* Stylist Profile Route */}
+      <Route path="/stylist-profile/:stylistId" element={<Layout><StylistProfile /></Layout>} />
       
       {/* Profile Route */}
       <Route path="/profile" element={<Layout><Profile /></Layout>} />

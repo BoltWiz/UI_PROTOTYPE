@@ -8,8 +8,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Search, Eye, Heart, Filter } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import collectionsData from '@/data/collections.sample.json';
+import { useNavigate } from 'react-router-dom';
 
 export default function Collections() {
+  const navigate = useNavigate();
   const { toast } = useToast();
   const [collections] = useState(collectionsData);
   const [searchQuery, setSearchQuery] = useState('');
@@ -31,6 +33,34 @@ export default function Collections() {
       description: `Vui lòng đăng ký để có thể ${action} bộ sưu tập.`,
       variant: "default"
     });
+  };
+
+  const handleStylistClick = (stylistName: string) => {
+    // Navigate to stylist profile - using name as ID for demo
+    const stylistId = stylistName.toLowerCase().replace(' ', '-');
+    navigate(`/stylist-profile/${stylistId}`);
+  };
+
+  const handleUseInOutfit = (collection: any) => {
+    // Save collection outfit to localStorage for Daily page
+    const collectionOutfit = {
+      id: `collection_${collection.id}_${Date.now()}`,
+      source: 'collection',
+      collectionId: collection.id,
+      collectionTitle: collection.title,
+      stylistName: collection.stylistName,
+      items: collection.itemsPreview,
+      savedAt: new Date().toISOString()
+    };
+    
+    localStorage.setItem('collection_outfit', JSON.stringify(collectionOutfit));
+    
+    toast({
+      title: "Outfit saved from collection",
+      description: `"${collection.title}" has been added to your daily outfits`
+    });
+    
+    navigate('/daily');
   };
 
   useEffect(() => {
@@ -125,7 +155,16 @@ export default function Collections() {
 
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">
-                      bởi {collection.stylistName}
+                      bởi <button 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleStylistClick(collection.stylistName);
+                        }}
+                        className="text-primary hover:underline font-medium"
+                      >
+                        {collection.stylistName}
+                      </button>
                     </span>
                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1">
@@ -163,6 +202,12 @@ export default function Collections() {
           >
             <Heart className="w-4 h-4 mr-2" />
             Save
+          </Button>
+          <Button 
+            size="sm" 
+            onClick={() => handleUseInOutfit(collections[0])}
+          >
+            Sử dụng trong outfit
           </Button>
         </div>
       </div>
