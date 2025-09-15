@@ -1,5 +1,5 @@
 import { ReactNode, useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { 
   Shirt, 
@@ -56,6 +56,7 @@ const navigationItems = [
 
 export function Layout({ children }: LayoutProps) {
   const location = useLocation();
+  const navigate = useNavigate();
   const currentUser = getCurrentUser();
   const [isInboxOpen, setIsInboxOpen] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
