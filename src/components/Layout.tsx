@@ -12,7 +12,8 @@ import {
   LogOut,
   Image,
   MessageSquare,
-  Trophy
+  Trophy,
+  User
 } from 'lucide-react';
 import { getCurrentUser } from '@/lib/mock';
 import { useAuth } from '@/contexts/AuthContext';
